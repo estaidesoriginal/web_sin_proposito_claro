@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Estadísticas - Escape Velocity</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- DataTables CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
+</head>
+<body>
+    <div id="page-wrapper">
+        <section id="header" class="wrapper">
+            <div id="logo">
+                <h1><a href="index.html">Estadísticas</a></h1>
+                <p>Resumen de actividad y compras</p>
+            </div>
+        </section>
+        <div id="main" class="wrapper style2">
+            <div class="title">Estadísticas</div>
+            <div class="container">
+                <table id="tabla-estadisticas" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Producto</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Producto A</td><td>Juan</td><td>2025-08-01</td><td>$10.00</td></tr>
+                        <tr><td>2</td><td>Producto B</td><td>María</td><td>2025-08-02</td><td>$15.00</td></tr>
+                        <tr><td>3</td><td>Producto C</td><td>Carlos</td><td>2025-08-03</td><td>$20.00</td></tr>
+                        <tr><td>4</td><td>Producto D</td><td>Ana</td><td>2025-08-04</td><td>$25.00</td></tr>
+                        <tr><td>5</td><td>Producto E</td><td>Pedro</td><td>2025-08-05</td><td>$30.00</td></tr>
+                        <tr><td>6</td><td>Producto F</td><td>Lucía</td><td>2025-08-06</td><td>$35.00</td></tr>
+                        <tr><td>7</td><td>Producto G</td><td>Diego</td><td>2025-08-07</td><td>$40.00</td></tr>
+                        <tr><td>8</td><td>Producto H</td><td>Sofía</td><td>2025-08-08</td><td>$45.00</td></tr>
+                        <tr><td>9</td><td>Producto I</td><td>Martín</td><td>2025-08-09</td><td>$50.00</td></tr>
+                        <tr><td>10</td><td>Producto J</td><td>Valeria</td><td>2025-08-10</td><td>$55.00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <section id="footer" class="wrapper">
+            <div class="title">Gracias por visitar</div>
+            <p>Escape Velocity</p>
+        </section>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- DataTables JS CDN -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tabla-estadisticas').DataTable();
+        });
+    </script>
+    <script src="assets/js/funciones.js"></script>
+</body>
+</html>
