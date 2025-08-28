@@ -6,6 +6,40 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        .contenedor {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            cursor: pointer;
+            margin: 30px auto 0 auto;
+        }
+        .contenedor img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .contenedor .preview {
+            opacity: 1;
+            z-index: 2;
+        }
+        .contenedor .gif {
+            opacity: 0;
+            z-index: 1;
+        }
+        .contenedor:hover .preview {
+            opacity: 0;
+        }
+        .contenedor:hover .gif {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <div id="page-wrapper">
@@ -24,7 +58,6 @@
                 <p>Precio: $15.00</p>
                 <button class="add-to-cart">Agregar al carrito</button>
             </div>
-            <!-- Más productos para index.html -->
             <div class="product" data-id="3">
                 <img src="images/product3.jpg" alt="Producto 3" />
                 <h3>Producto 3</h3>
@@ -43,6 +76,11 @@
                 <p>Precio: $12.50</p>
                 <button class="add-to-cart">Agregar al carrito</button>
             </div>
+        </div>
+        <!-- Imagen y gif como video debajo de los productos -->
+        <div class="contenedor">
+            <img src="images/descarga.jpg" alt="Vista previa" class="preview">
+            <img src="images/descuento.jpg" alt="Foto alterna" class="gif">
         </div>
         <!-- Botón para ir al carrito -->
         <div style="margin-top:30px;">
@@ -70,5 +108,6 @@
     });
     </script>
 </body>
-
 </html>
+
+
