@@ -1,55 +1,173 @@
-<!DOCTYPE html>//PROD
-
-<html>
+<<!DOCTYPE html>
+<html lang="es">
 <head>
-    <title>Productos - Escape Velocity</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+  <meta charset="UTF-8" />
+  <title>Productos - Escape Velocity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    #page-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.2s;
+    }
+    .product:hover {
+      transform: scale(1.03);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+    .product p {
+      font-weight: bold;
+      color: #444;
+    }
+    .add-to-cart {
+      background: #0077ff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .add-to-cart:hover {
+      background: #005fcc;
+    }
+    .cart-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      position: relative;
+    }
+    .cart-link:hover {
+      background: #218838;
+    }
+    .cart-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 3px 8px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <div id="page-wrapper">
-        <!-- Productos para el carrito -->
-        <div id="products">
-            <h2>Productos Destacados</h2>
-            <div class="product" data-id="1">
-                <img src="images/product1.jpg" alt="Producto 1" />
-                <h3>Producto 1</h3>
-                <p>Precio: $10.00</p>
-                <button class="add-to-cart">Agregar al carrito</button>
-            </div>
-            <div class="product" data-id="2">
-                <img src="images/product2.jpg" alt="Producto 2" />
-                <h3>Producto 2</h3>
-                <p>Precio: $15.00</p>
-                <button class="add-to-cart">Agregar al carrito</button>
-            </div>
-        </div>
-        <!-- Botón para ir al carrito -->
-        <div style="margin-top:30px;">
-            <a href="no-sidebar.html" class="button style1">Ir al carrito</a>
-        </div>
-    </div>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const products = document.querySelectorAll('.product');
-        products.forEach(product => {
-            product.querySelector('.add-to-cart').addEventListener('click', function () {
-                const id = product.getAttribute('data-id');
-                const name = product.querySelector('h3').textContent;
-                const price = parseFloat(product.querySelector('p').textContent.replace('Precio: $', ''));
-                let cart = JSON.parse(localStorage.getItem('cart')) || {};
-                if (!cart[id]) {
-                    cart[id] = { name, price, quantity: 1 };
-                } else {
-                    cart[id].quantity += 1;
-                }
-                localStorage.setItem('cart', JSON.stringify(cart));
-                alert('Producto agregado al carrito');
-            });
-        });
-    });
-    </script>
-</body>
+  <div id="page-wrapper">
+    <!-- Productos para el carrito -->
+    <div id="products">
+  <h2>Productos Destacados</h2>
+  
+  <!-- Se debe de agregar nombre a los productos, un precio casi real y una descripcion -->
+  <!-- Producto 1 -->
+  <div class="product" data-id="1">
+    <img src="https://cosmetic.cl/cdn/shop/products/3605971364648-polo-red-extreme-edp-125ml-6aeb8cd5-2bb2-4fb8-bb2e-e150384ac044_384945b9-bfb3-42ae-8a4d-047f155c0b00_800x.png?v=1674135601" alt="Producto 1" />
+    <h3>Producto 1</h3>
+    <p>$10.00</p>
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
 
+  <!-- Producto 2 -->
+  <div class="product" data-id="2">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZB4h5fw4NpULPJVyXtRNmHawotOIgKQZ2kQ&s" alt="Producto 2" />
+    <h3>Producto 2</h3>
+    <p>$15.00</p>
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 3 -->
+  <div class="product" data-id="3">
+    <img src="https://fimgs.net/mdimg/perfume-thumbs/375x500.29897.jpg" alt="Producto 3" />
+    <h3>Producto 3</h3>
+    <p>$20.00</p>
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 4 -->
+  <div class="product" data-id="4">
+    <img src="https://rimage.ripley.cl/home.ripley/Attachment/WOP/1/2000395183911/full_image-2000395183911.webp" alt="Producto 4" />
+    <h3>Producto 4</h3>
+    <p>$25.00</p>
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 5 -->
+  <div class="product" data-id="5">
+    <img src="https://media.falabella.com/falabellaCL/50379546_1/w=800,h=800,fit=pad" alt="Producto 5" />
+    <h3>Producto 5</h3>
+    <p>$30.00</p>
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+</div>
+
+    <!-- Botón para ir al carrito -->
+    <div style="text-align:center; margin-top:30px;">
+      <a href="no-sidebar.html" class="cart-link">
+        Ir al carrito <span id="cart-count" class="cart-badge">0</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || {};
+      let count = Object.values(cart).reduce((acc, item) => acc + item.quantity, 0);
+      document.getElementById('cart-count').textContent = count;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        product.querySelector('.add-to-cart').addEventListener('click', function () {
+          const id = product.getAttribute('data-id');
+          const name = product.querySelector('h3').textContent;
+          const price = parseFloat(product.querySelector('p').textContent.replace('$', ''));
+          let cart = JSON.parse(localStorage.getItem('cart')) || {};
+          if (!cart[id]) {
+            cart[id] = { name, price, quantity: 1 };
+          } else {
+            cart[id].quantity += 1;
+          }
+          localStorage.setItem('cart', JSON.stringify(cart));
+          updateCartCount();
+        });
+      });
+      updateCartCount();
+    });
+  </script>
+</body>
 </html>
+
