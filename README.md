@@ -1,6 +1,5 @@
 # web_venta_perfumes
-holahola
-dicen dam nene
+hola
 tienda
 Perfumes 
 interfa 
