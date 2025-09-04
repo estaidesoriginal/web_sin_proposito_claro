@@ -4,53 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio de Sesión</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .login-container {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      width: 300px;
-      text-align: center;
-    }
-    .login-container h2 {
-      margin-bottom: 1.5rem;
-    }
-    .login-container input {
-      width: 100%;
-      padding: 0.7rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .login-container button {
-      margin-top: 1rem;
-      width: 100%;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 8px;
-      background: #4CAF50;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .login-container button:hover {
-      background: #45a049;
-    }
-    .login-container .register-link {
-      margin-top: 1rem;
-      display: block;
-      font-size: 0.9rem;
-    }
-  </style>
+  <link rel="stylesheet" href="stylesLogin.css">
 </head>
 <body>
   <div class="login-container">
@@ -70,10 +24,20 @@
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      // Validación simple de ejemplo
-      if (username === "admin" && password === "1234") {
+      // Recuperar lo que se registró
+      const regUser = localStorage.getItem("userRegistered");
+      const regPass = localStorage.getItem("passRegistered");
+
+      if (!regUser || !regPass) {
+        alert("⚠️ No hay ningún usuario registrado. Primero regístrate.");
+        window.location.href = "registro.html";
+        return;
+      }
+
+      if (username === regUser && password === regPass) {
         alert("✅ Bienvenido " + username);
-        window.location.href = "cart.html"; // después de iniciar sesión vuelve al carrito
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "cart.html";
       } else {
         alert("❌ Usuario o contraseña incorrectos");
       }
