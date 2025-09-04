@@ -1,0 +1,11 @@
+agregar
+agregar hypervinculos para la navegación entre paginas 
+implementar una hoja estilo css propia 
+incorporar la hoja de estilo css de forma externa
+usar selectores css y propiedades para personalizar el diseño 
+desarrollar validaciones para el formulario utilizando java script
+implementar sugerencia y mensajes de error personalizados en los campos que se requieran 
+implementar funciones java script para validar los campos de los formularios en tiempo real junto con mensaje de error de ser necesario
+realizar cambios en el repositorios con comentarios claros y coherentes 
+<<<<<<<<<importante corregir los cambios en los repositorios previos para hacerlo acorde a la evaluación 
+
