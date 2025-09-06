@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sesión</title>
+  <link rel="stylesheet" href="stylesLogin.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Correo o Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+    <a href="registro.html" class="register-link">¿No tienes cuenta? Regístrate</a>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Recuperar lo que se registró
+      const regUser = localStorage.getItem("userRegistered");
+      const regPass = localStorage.getItem("passRegistered");
+
+      if (!regUser || !regPass) {
+        alert("⚠️ No hay ningún usuario registrado. Primero regístrate.");
+        window.location.href = "registro.html";
+        return;
+      }
+
+      if (username === regUser && password === regPass) {
+        alert("✅ Bienvenido " + username);
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "cart.html";
+      } else {
+        alert("❌ Usuario o contraseña incorrectos");
+      }
+    });
+  </script>
+</body>
+</html>

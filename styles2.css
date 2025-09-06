@@ -1,0 +1,93 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #f0f0f0, #dcdcdc);
+}
+header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+.product {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+width: 250px;
+    
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    position: relative;
+}
+.product:hover {
+    transform: scale(1.05);
+    border-color: #007BFF;
+}
+.discount {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    display: none;
+    text-align: center;
+ 
+}
+.product:hover .discount {
+    display: block;
+}
+.product img {
+    width: 100%;
+    height: auto;
+}
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.cart {
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+.hidden {
+    display: none;
+}
+input, select {
+    margin: 5px 0;
+    padding: 5px;
+    width: 100%;
+}
+form button {
+    margin-top: 10px;
+    width: 100%;
+}
+#productGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
