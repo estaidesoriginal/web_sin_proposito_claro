@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .register-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Registro de Usuario</h2>
+        <input type="text" id="usuario" placeholder="Nombre de Usuario">
+        <input type="email" id="correo" placeholder="Correo Electrónico">
+        <input type="text" id="ubicacion" placeholder="Ubicación">
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        <button onclick="registrarUsuario()">Registrarse</button>
+    </div>
+
+    <script>
+        function registrarUsuario() {
+            const usuario = document.getElementById('usuario').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            const ubicacion = document.getElementById('ubicacion').value.trim();
+            const contrasena = document.getElementById('contrasena').value.trim();
+
+            if (!usuario || !correo || !ubicacion || !contrasena) {
+                alert('Por favor complete todos los campos.');
+                return;
+            }
+
+            // Validación de correo con @
+            if (!correo.includes('@')) {
+                alert('El correo debe contener un "@" válido.');
+                return;
+            }
+
+            // Validación de contraseña: 8-16 caracteres, al menos una letra y un número
+            const regexContrasena = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+            if (!regexContrasena.test(contrasena)) {
+                alert('La contraseña debe tener entre 8 y 16 caracteres, incluir al menos una letra y un número.');
+                return;
+            }
+
+            const datosUsuario = {
+                usuario: usuario,
+                correo: correo,
+                ubicacion: ubicacion,
+                contrasena: contrasena
+            };
+
+            localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+            alert('Registro exitoso. Ahora puede iniciar sesión.');
+            location.href = 'inicie_sesion.html';
+        }
+    </script>
+</body>
+</html>

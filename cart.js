@@ -1,9 +1,10 @@
 
-/*const imageUrl = "https://mundoaromas.cl/cdn/shop/products/HUGO.jpg?v=1646238744";*/
+
 const products = Array.from({length: 40}, (_, i) => ({
     name: `Perfume ${i+1}`,
     brand: "Marca Ejemplo",
-    price: 50 + i
+    price: 50 + i,
+	image: `images/perfume${i + 1}.jpg` // Ruta de imagen personalizada
 }));
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -17,8 +18,9 @@ function renderCart() {
         const div = document.createElement('div');
         div.className = 'cart-item';
         div.innerHTML = `
-            
+            <img src="${product.image}">
             <div>
+   			  
                 <strong>${product.name}</strong><br>
                 ${product.brand}<br>
                 $${product.price}

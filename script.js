@@ -1,21 +1,10 @@
-
-function displayProducts() {
-    const grid = document.getElementById('productGrid');
-    products.forEach((p, index) => {
-        const div = document.createElement('div');
-        div.className = 'product';
-        div.innerHTML = `
-            <img src="${imageUrl}" alt="${p.name}">
-            <div>${p.name}</div>
-            <div>${p.brand}</div>
-            <div>$${p.price}</div>
-            <div class='discount'>Descuento: ${p.discount}</div>
-            <button onclick="addToCart(${index})">Agregar al carrito</button>
-        `;
-        grid.appendChild(div);
-    });
-}
-
+const boton = document.getElementById('miBotonAccion');
+const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+if (!usuarioLogeado) {
+            boton.style.display = 'none'; // Oculta el botón
+        } else {
+            boton.style.display = 'block'; // Muestra el botón (o el valor que necesite)
+        }
 function addToCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const item = cart.find(i => i.index === index);
@@ -26,3 +15,4 @@ function addToCart(index) {
 }
 
 displayProducts();
+

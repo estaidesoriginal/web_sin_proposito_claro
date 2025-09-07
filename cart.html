@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,13 +13,33 @@
             <button onclick="location.href='index.html'">Home</button>
         </nav>
     </header>
+
     <main>
         <div id="cartItems" class="cart-items"></div>
         <div class="cart-summary">
             <h3>Total: <span id="totalAmount">$0</span></h3>
-            <button onclick="location.href='checkout.html'">Realizar Pedido</button>
+            <button id="botonProtegido" disabled>Realizar Pedido</button>
         </div>
     </main>
+<script>
+    window.onload = function() {
+        const autenticado = localStorage.getItem("usuarioAutenticado");
+        const boton = document.getElementById("botonProtegido");
+
+        if (autenticado === "true") {
+            boton.disabled = false;
+        } else {
+            alert("⚠️ Debes iniciar sesión para acceder al carrito");
+            window.location.href = "inicie_sesion.html"; 
+        }
+    };
+</script>
+ 
+
+
+
+
+
     <script src="cart.js"></script>
 </body>
 </html>

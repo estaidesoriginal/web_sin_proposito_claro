@@ -6,33 +6,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+   
+
     <header>
         <div class="logo">Perfumería DUOC UC</div>
         <div class="menu-bar">
-            <nav>
-                <button onclick="location.href=&#39;index.html&#39;">Home</button>
-                <button onclick="location.href=&#39;about.html&#39;">Quiénes Somos</button>
-                <button onclick="location.href=&#39;contact.html&#39;">Contacto</button>
-            </nav>
+<nav>
+  <button onclick="location.href='index.html'">Home</button>
+  <button onclick="location.href='about.html'">Quiénes Somos</button>
+  <button onclick="location.href='contact.html'">Contacto</button>
+
+  <!-- Botón de inicio de sesión -->
+  <button id="btnLogin" onclick="location.href='inicie_sesion.html'">Iniciar sesión</button>
+
+  <!-- Botón de cerrar sesión -->
+  <button id="btnLogout" onclick="cerrarSesion()">Cerrar sesión</button>
+</nav>
             <div class="cart" onclick="location.href=&#39;cart.html&#39;">🛒 Revisar carrito de compra</div>
         </div>
     </header>
     <main id="productGrid"><div class="product">
-            <img src="./images/UploadedImage0.jpg" alt="Perfume 1">
-            <div>Perfume 1</div>
-            <div>Marca Ejemplo</div>
-            <div>$50</div>
+            <div><img src="./images/Perfume1.jpg" alt="Perfume 1"></div>
+            <div>Versace Rojo</div>
+            <div>Versace</div>
+            <div>$180.000</div>
             <div class="discount">Descuento: 10%</div>
             <button onclick="addToCart(0)">Agregar al carrito</button>
         </div><div class="product">
-            <img src="./images/Versace.png" alt="Perfume 2">
+            <img src="./images/Perfume2.jpg" alt="Perfume 2">
             <div>Perfume 2</div>
             <div>Marca Ejemplo</div>
             <div>$51</div>
             <div class="discount">Descuento: 15%</div>
             <button onclick="addToCart(1)">Agregar al carrito</button>
         </div><div class="product">
-            <img src="./images/Versace2.png" alt="Perfume 3">
+            <img src="./images/Perfume3.jpg" alt="Perfume 3">
             <div>Perfume Hombre</div>
             <div>Marca : Versace</div>
             <div>$119.990</div>
@@ -134,6 +143,27 @@
             <button onclick="addToCart(15)">Agregar al carrito</button>
         </div>
 		</main>
+<script>
+  function cerrarSesion() {
+    localStorage.removeItem("usuarioAutenticado");
+    alert("👋 Sesión cerrada.");
+    window.location.href = "index.html";
+  }
+
+  window.onload = function () {
+    const autenticado = localStorage.getItem("usuarioAutenticado");
+    const btnLogin = document.getElementById("btnLogin");
+    const btnLogout = document.getElementById("btnLogout");
+
+    if (autenticado === "true") {
+      btnLogin.style.display = "none";   // ocultar login
+      btnLogout.style.display = "inline-block"; // mostrar logout
+    } else {
+      btnLogin.style.display = "inline-block"; 
+      btnLogout.style.display = "none";  // ocultar logout
+    }
+  };
+</script>
     <script src="script.js"></script>
 
 
