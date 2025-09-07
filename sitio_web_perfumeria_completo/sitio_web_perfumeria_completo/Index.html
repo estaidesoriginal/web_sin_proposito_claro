@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfumería DUOC UC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+   
+
+    <header>
+        <div class="logo">Perfumería DUOC UC</div>
+        <div class="menu-bar">
+<nav>
+  <button onclick="location.href='index.html'">Home</button>
+  <button onclick="location.href='about.html'">Quiénes Somos</button>
+  <button onclick="location.href='contact.html'">Contacto</button>
+
+  <!-- Botón de inicio de sesión -->
+  <button id="btnLogin" onclick="location.href='inicie_sesion.html'">Iniciar sesión</button>
+
+  <!-- Botón de cerrar sesión -->
+  <button id="btnLogout" onclick="cerrarSesion()">Cerrar sesión</button>
+</nav>
+            <div class="cart" onclick="location.href=&#39;cart.html&#39;">🛒 Revisar carrito de compra</div>
+        </div>
+    </header>
+    <main id="productGrid"><div class="product">
+            <div><img src="./images/Perfume1.jpg" alt="Perfume 1"></div>
+            <div>Versace Rojo</div>
+            <div>Versace</div>
+            <div>$180.000</div>
+            <div class="discount">Descuento: 10%</div>
+            <button onclick="addToCart(0)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./images/Perfume2.jpg" alt="Perfume 2">
+            <div>Perfume 2</div>
+            <div>Marca Ejemplo</div>
+            <div>$51</div>
+            <div class="discount">Descuento: 15%</div>
+            <button onclick="addToCart(1)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./images/Perfume3.jpg" alt="Perfume 3">
+            <div>Perfume Hombre</div>
+            <div>Marca : Versace</div>
+            <div>$119.990</div>
+            <div class="discount">Descuento: 20%</div>
+            <button onclick="addToCart(2)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 4">
+            <div>Perfume 4</div>
+            <div>Marca Ejemplo</div>
+            <div>$53</div>
+            <div class="discount">Descuento: 25%</div>
+            <button onclick="addToCart(3)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 5">
+            <div>Perfume 5</div>
+            <div>Marca Ejemplo</div>
+            <div>$54</div>
+            <div class="discount">Descuento: 30%</div>
+            <button onclick="addToCart(4)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 6">
+            <div>Perfume 6</div>
+            <div>Marca Ejemplo</div>
+            <div>$55</div>
+            <div class="discount">Descuento: 10%</div>
+            <button onclick="addToCart(5)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 7">
+            <div>Perfume 7</div>
+            <div>Marca Ejemplo</div>
+            <div>$56</div>
+            <div class="discount">Descuento: 15%</div>
+            <button onclick="addToCart(6)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 8">
+            <div>Perfume 8</div>
+            <div>Marca Ejemplo</div>
+            <div>$57</div>
+            <div class="discount">Descuento: 20%</div>
+            <button onclick="addToCart(7)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 9">
+            <div>Perfume 9</div>
+            <div>Marca Ejemplo</div>
+            <div>$58</div>
+            <div class="discount">Descuento: 25%</div>
+            <button onclick="addToCart(8)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 10">
+            <div>Perfume 10</div>
+            <div>Marca Ejemplo</div>
+            <div>$59</div>
+            <div class="discount">Descuento: 30%</div>
+            <button onclick="addToCart(9)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 11">
+            <div>Perfume 11</div>
+            <div>Marca Ejemplo</div>
+            <div>$60</div>
+            <div class="discount">Descuento: 10%</div>
+            <button onclick="addToCart(10)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 12">
+            <div>Perfume 12</div>
+            <div>Marca Ejemplo</div>
+            <div>$61</div>
+            <div class="discount">Descuento: 15%</div>
+            <button onclick="addToCart(11)">Agregar al carrito</button>
+        </div><div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 13">
+            <div>Perfume 13</div>
+            <div>Marca Ejemplo</div>
+            <div>$62</div>
+            <div class="discount">Descuento: 20%</div>
+            <button onclick="addToCart(12)">Agregar al carrito</button>
+        </div>
+		<div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 14">
+            <div>Perfume 14</div>
+            <div>Marca Ejemplo</div>
+            <div>$63</div>
+            <div class="discount">Descuento: 25%</div>
+            <button onclick="addToCart(13)">Agregar al carrito</button>
+        </div>
+		<div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 15">
+            <div>Perfume 15</div>
+            <div>Marca Ejemplo</div>
+            <div>$64</div>
+            <div class="discount">Descuento: 30%</div>
+            <button onclick="addToCart(14)">Agregar al carrito</button>
+        </div>
+		<div class="product">
+            <img src="./Perfumería DUOC UC_files/UploadedImage0.jpg" alt="Perfume 15">
+            <div>Perfume 16</div>
+            <div>Marca Ejemplo</div>
+            <div>$65</div>
+            <div class="discount">Descuento: 30%</div>
+            <button onclick="addToCart(15)">Agregar al carrito</button>
+        </div>
+		</main>
+<script>
+  function cerrarSesion() {
+    localStorage.removeItem("usuarioAutenticado");
+    alert("👋 Sesión cerrada.");
+    window.location.href = "index.html";
+  }
+
+  window.onload = function () {
+    const autenticado = localStorage.getItem("usuarioAutenticado");
+    const btnLogin = document.getElementById("btnLogin");
+    const btnLogout = document.getElementById("btnLogout");
+
+    if (autenticado === "true") {
+      btnLogin.style.display = "none";   // ocultar login
+      btnLogout.style.display = "inline-block"; // mostrar logout
+    } else {
+      btnLogin.style.display = "inline-block"; 
+      btnLogout.style.display = "none";  // ocultar logout
+    }
+  };
+</script>
+    <script src="script.js"></script>
+
+
+</body></html>
