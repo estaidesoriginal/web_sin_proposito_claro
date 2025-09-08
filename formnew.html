@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Formulario de Contacto - Escape Velocity</title>
+    <title>Formulario de Contacto</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="style_contacto.css" />
 </head>
 <body>
  <section id="contact-form" class="inner form-container">
@@ -14,39 +14,41 @@
         <p>Completa el formulario y te responderemos lo antes posible.</p>
     </header>
 
-    <form id="contactForm" onsubmit="event.preventDefault(); valformulario();">
-        <div class="fields">
-            <div class="field half">
-                <label for="email">Correo electrónico</label>
-                <input type="email" name="email" id="email" placeholder="Ingrese su correo electronico..." required />
-            </div>
-            <div class="field half">
-                <label for="subject">Asunto</label>
-                <input type="text" name="subject" id="subject" placeholder="Asunto..." required />
-            </div>
-            <div class="field">
-                <label for="message">Mensaje</label>
-                <textarea name="message" id="message" rows="5" placeholder="Escribe su mensaje aquí..." required></textarea>
-            </div>
+    <form id="contactForm">
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
         </div>
-
-        <ul class="actions">
-            <li><input type="submit" value="Enviar" class="primary" /></li>
-            <li><input type="reset" value="Borrar" /></li>
-        </ul>
+        <div class="field">
+            <label for="Asunto">Asunto</label>
+            <input type="text" name="Asunto" id="Asunto">
+        </div>
+        <div class="field">
+            <label for="Mensaje">Mensaje</label>
+            <textarea name="Mensaje" id="Mensaje"></textarea>
+        </div>
+       <input type="submit" id="button" value="Enviar" >
     </form>
-</section>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  emailjs.init('SIKhf3tsHp7PkczZB');
 
-<script>
-function valformulario() {
-    // Tu validación y lógica de envío aquí
-    // ...
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    // Limpiar el formulario después de enviar
-    document.getElementById('contactForm').reset();
-}
+    emailjs.send('service_ucmygaf', 'template_z8q5rp9', {
+      email: document.getElementById('email').value,
+      Asunto: document.getElementById('Asunto').value,
+      Mensaje: document.getElementById('Mensaje').value
+    })
+    .then(function() {
+      alert('Correo enviado correctamente!');
+      document.getElementById('contactForm').reset();
+    }, function(error) {
+      alert('Error al enviar el correo: ' + JSON.stringify(error));
+    });
+  });
 </script>
-
 </body>
-
 </html>
