@@ -20,8 +20,21 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="login">
-                <a href="#">Iniciar Sesión</a>
+            <div class="login-carrito">
+                <a href="../html/inicio_sesion.html">Iniciar Sesión</a>
+                    <div class="carrito">
+                        <span class="carrito-icon">🛒</span>
+                        <span class="carrito-count">0</span>
+                    </div>
+            </div>
+        </div>
+        <!-- Modal del carrito -->
+        <div id="modal-carrito" class="modal-carrito">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Carrito de Compras</h2>
+                <ul id="carrito-lista"></ul>
+                <p id="carrito-total"></p>
             </div>
         </div>
     </header>
@@ -52,5 +65,6 @@
         <p>&copy; 2025 Perfumes Sahur. Todos los derechos reservados.</p>
     </div>
     </footer>
+    <script src="../js/carrito.js"></script>
 </body>
 </html>

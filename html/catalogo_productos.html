@@ -20,8 +20,21 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="login">
-                <a href="#">Iniciar Sesión</a>
+            <div class="login-carrito">
+                <a href="../html/inicio_sesion.html">Iniciar Sesión</a>
+                    <div class="carrito">
+                        <span class="carrito-icon">🛒</span>
+                        <span class="carrito-count">0</span>
+                    </div>
+            </div>
+        </div>
+        <!-- Modal del carrito -->
+        <div id="modal-carrito" class="modal-carrito">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Carrito de Compras</h2>
+                <ul id="carrito-lista"></ul>
+                <p id="carrito-total"></p>
             </div>
         </div>
     </header>
@@ -56,8 +69,10 @@
     </footer>
 
     <script src="..\js\productos.js"></script>
+    <script src="../js/carrito.js"></script>
     <script>
         const container = document.getElementById('productos-container');
+
         productos.forEach(prod => {
             const div = document.createElement('div');
             div.classList.add('product');
@@ -67,12 +82,13 @@
                 <p>${prod.descripcion}</p>
                 <p class="precio">Precio: $${prod.precio}</p>
                 <div class="botonera">
-                    <a href="producto.html?id=${prod.id}">Ver producto</a>
-                    <button>Comprar</button>
+                <a href="producto.html?id=${prod.id}">Ver producto</a>
+                <button>Comprar</button>
                 </div>
             `;
             container.appendChild(div);
         });
+        agregarListenerCarrito(productos.slice(0,12));
     </script>
 </body>
 

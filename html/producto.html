@@ -21,8 +21,21 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="login">
-                <a href="#">Iniciar Sesión</a>
+            <div class="login-carrito">
+                <a href="../html/inicio_sesion.html">Iniciar Sesión</a>
+                    <div class="carrito">
+                        <span class="carrito-icon">🛒</span>
+                        <span class="carrito-count">0</span>
+                    </div>
+            </div>
+        </div>
+        <!-- Modal del carrito -->
+        <div id="modal-carrito" class="modal-carrito">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Carrito de Compras</h2>
+                <ul id="carrito-lista"></ul>
+                <p id="carrito-total"></p>
             </div>
         </div>
     </header>
@@ -60,7 +73,9 @@
         <p>&copy; 2025 Perfumes Sahur. Todos los derechos reservados.</p>
       </div>
     </footer>
-  <!--Script para mostrar el producto seleccionado-->
+  <!--Script para mostrar el producto seleccionado-->  
+  <script src="../js/productos.js"></script>
+  <script src="../js/carrito.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const id = parseInt(params.get('id'), 10);
@@ -77,13 +92,25 @@
             <h2>${producto.nombre}</h2>
             <p class="detalle-precio">Precio: $${producto.precio}</p>
             <p class="detalle-descripcion">${producto.descripcion}</p>
-            <button>Agregar al carrito</button>
+            <button id="btn-comprar-detalle">Comprar</button>
           </div>
         </div>
       `;
+      const btnDetalle = document.getElementById('btn-comprar-detalle');
+      btnDetalle.addEventListener('click', () => {
+        carrito.push(producto); // reutiliza el carrito global
+        carritoCount.textContent = carrito.length;
+        alert(`${producto.nombre} agregado al carrito`);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+      });
     } else {
       detalle.textContent = 'Producto no encontrado.';
     }
+  </script>
+
+  <script>
+    const container = document.getElementById('productos-container');
+    agregarListenerCarrito(productos.slice(0,12));
   </script>
   
 </body>

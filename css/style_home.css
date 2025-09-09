@@ -258,3 +258,96 @@ footer {
   padding-top: 10px;
 }
 
+/* Login y carrito juntos */
+.login-carrito {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espacio entre login y carrito */
+}
+
+/* Icono del carrito */
+.carrito {
+  position: relative;
+  cursor: pointer;
+  font-size: 1.5rem; /* tamaño del icono */
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.carrito:hover {
+  color: #cceee9;
+}
+
+/* Contador de productos en el carrito */
+.carrito-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+/* Modal carrito */
+.modal-carrito {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  text-align: left;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+#carrito-lista {
+  list-style: none;
+  padding: 0;
+}
+
+#carrito-lista li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#carrito-lista li button {
+  background: red;
+  border: none;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#carrito-total {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: right;
+}
