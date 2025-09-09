@@ -55,6 +55,18 @@ registroForm.addEventListener('submit', (e) => {
 
     alert('Registro exitoso. Ahora puedes iniciar sesión.');
     registroForm.reset();
+    
+    if (usuario) {
+    alert(`Bienvenido ${usuario.nombre}! Has iniciado sesión correctamente.`);
+    loginForm.reset();
+    // Guardar usuario actual
+    localStorage.setItem('usuarioActual', JSON.stringify(usuario));
+    // Redirigir a home
+    window.location.href = 'home.html';
+} else {
+    alert('Correo o contraseña incorrectos. Verifica tus datos.');
+}
+
 
     // Volver al login automáticamente
     loginForm.style.display = 'block';

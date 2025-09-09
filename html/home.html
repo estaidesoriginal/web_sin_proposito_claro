@@ -103,6 +103,19 @@
 </footer>
 
 <!--Scripts-->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+    if (usuarioActual) {
+      // Buscamos el elemento donde está el botón de inicio de sesión
+      // Suponiendo que en el header hay un <div class="login"> con el enlace
+      const loginDiv = document.querySelector('.login');
+      if (loginDiv) {
+        loginDiv.innerHTML = `<span>Bienvenido, <strong>${usuarioActual.nombre}</strong></span>`;
+      }
+    }
+  });
+</script>
 <script src="../js/productos.js"></script>
 <script src="../js/carrito.js"></script>
 <script>
