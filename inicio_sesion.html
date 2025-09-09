@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Iniciar Sesión</title>
+<link rel="stylesheet" href="../css/style_inicio_sesion.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="logo_1.png" alt="Logo">
+            </div>
+
+            <!-- Menú centrado -->
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="catalogo_productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Login -->
+            <div class="login">
+                <a href="../html/inicio_sesion.html">Iniciar Sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor de login -->
+    <div class="login-container" style="max-width:400px;margin:60px auto;padding:30px;background:#fff;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1);text-align:center;">
+        <h2 style="margin-bottom:20px;">Inicie Sesión</h2>
+        <input type="text" id="usuario" placeholder="Usuario" style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #ccc;border-radius:6px;">
+        <input type="password" id="contrasena" placeholder="Contraseña" style="width:100%;padding:10px;margin-bottom:20px;border:1px solid #ccc;border-radius:6px;">
+        <button class="login-button" onclick="iniciarSesion()" style="width:100%;background:#019180;color:white;border:none;padding:12px;border-radius:6px;font-weight:bold;cursor:pointer;transition:background 0.2s ease;margin-bottom:10px;">Ingresar</button>
+        <button onclick="location.href='registro_usuario.html'" style="width:100%;background:#007267;color:white;border:none;padding:12px;border-radius:6px;font-weight:bold;cursor:pointer;transition:background 0.2s ease;">Regístrate</button>
+    </div>
+
+    <!-- Script de login -->
+    <script>
+    function iniciarSesion() {
+        const usuario = document.getElementById('usuario').value;
+        const contrasena = document.getElementById('contrasena').value;
+        const datosUsuario = JSON.parse(localStorage.getItem('datosUsuario'));
+
+        if (usuario && contrasena) {
+            if (datosUsuario && datosUsuario.usuario === usuario && datosUsuario.contrasena === contrasena) {
+                localStorage.setItem("usuarioAutenticado", "true");
+                alert('✅ Inicio de sesión exitoso.');
+                location.href = 'home.html'; // Redirige al inicio
+            } else {
+                alert('❌ Usuario o contraseña incorrectos.');
+            }
+        } else {
+            alert('⚠️ Por favor ingrese usuario y contraseña.');
+        }
+    }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section productos-footer">
+                <h3>Premiados en 2024</h3>
+                <ul>
+                    <li><a href="producto.html?id=2">Perfume Dulce</a></li>
+                    <li><a href="producto.html?id=6">Perfume Amaderado</a></li>
+                    <li><a href="producto.html?id=1">Perfume Cítrico</a></li>
+                </ul>
+            </div>
+            <div class="footer-section info-footer">
+                <h3>Sobre Nosotros</h3>
+                <p>
+                    Perfumes Sahur ofrece las mejores fragancias importadas y nacionales,
+                    con envío a todo el país y atención personalizada para cada cliente.
+                </p>
+            </div>
+            <div class="footer-section contacto-footer">
+                <h3>Contacto</h3>
+                <p>Email: contacto@perfumesahur.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Perfumes Sahur. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

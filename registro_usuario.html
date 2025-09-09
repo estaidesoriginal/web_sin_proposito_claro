@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuario</title>
+  <link rel="stylesheet" href="../css/style_registro.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="logo_1.png" alt="Logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="catalogo_productos.html">Productos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="login">
+        <a href="../html/inicio_sesion.html">Iniciar Sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Registro -->
+  <div class="register-container" style="max-width:400px;margin:60px auto;padding:30px;background:#fff;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1);text-align:center;">
+    <h2 style="margin-bottom:20px;">Registro de Usuario</h2>
+    <input type="text" id="usuario" placeholder="Nombre de Usuario" style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #ccc;border-radius:6px;">
+    <input type="email" id="correo" placeholder="Correo Electrónico" style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #ccc;border-radius:6px;">
+    <input type="password" id="contrasena" placeholder="Contraseña" style="width:100%;padding:10px;margin-bottom:20px;border:1px solid #ccc;border-radius:6px;">
+    <button onclick="registrarUsuario()" style="width:100%;background:#019180;color:white;border:none;padding:12px;border-radius:6px;font-weight:bold;cursor:pointer;transition:background 0.2s ease;">Registrarse</button>
+  </div>
+
+  <!-- Script de validación -->
+  <script>
+    function registrarUsuario() {
+      const usuario = document.getElementById('usuario').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const contrasena = document.getElementById('contrasena').value;
+
+      // Validar campos vacíos
+      if (!usuario || !correo || !contrasena) {
+        alert('⚠️ Por favor complete todos los campos.');
+        return;
+      }
+
+      // Validar correo
+      if (!correo.includes("@") || correo.startsWith("@") || correo.endsWith("@")) {
+        alert('⚠️ Ingrese un correo válido que contenga "@"');
+        return;
+      }
+
+      // Validar contraseña (8 a 16 caracteres)
+      if (contrasena.length < 8 || contrasena.length > 16) {
+        alert('⚠️ La contraseña debe tener entre 8 y 16 caracteres.');
+        return;
+      }
+
+      // Guardar en localStorage
+      const datosUsuario = {
+        usuario: usuario,
+        correo: correo,
+        contrasena: contrasena
+      };
+      localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+
+      alert('✅ Registro exitoso. Ahora puede iniciar sesión.');
+      location.href = 'inicio_sesion.html';
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section productos-footer">
+        <h3>Premiados en 2024</h3>
+        <ul>
+          <li><a href="producto.html?id=2">Perfume Dulce</a></li>
+          <li><a href="producto.html?id=6">Perfume Amaderado</a></li>
+          <li><a href="producto.html?id=1">Perfume Cítrico</a></li>
+        </ul>
+      </div>
+      <div class="footer-section info-footer">
+        <h3>Sobre Nosotros</h3>
+        <p>
+          Perfumes Sahur ofrece las mejores fragancias importadas y nacionales,
+          con envío a todo el país y atención personalizada para cada cliente.
+        </p>
+      </div>
+      <div class="footer-section contacto-footer">
+        <h3>Contacto</h3>
+        <p>Email: contacto@perfumesahur.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Perfumes Sahur. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
