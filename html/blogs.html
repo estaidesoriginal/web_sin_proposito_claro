@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Todos los Productos</title>
+  <link rel="stylesheet" href="..\css\style_blog.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo_1.png" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="catalogo_productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="login-carrito">
+                <a href="../html/inicio_sesion.html">Iniciar Sesión</a>
+                    <div class="carrito">
+                        <span class="carrito-icon">🛒</span>
+                        <span class="carrito-count">0</span>
+                    </div>
+            </div>
+        </div>
+        <!-- Modal del carrito -->
+        <div id="modal-carrito" class="modal-carrito">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Carrito de Compras</h2>
+                <ul id="carrito-lista"></ul>
+                <p id="carrito-total"></p>
+            </div>
+        </div>
+    </header>
+        <main>
+  <section class="video-section">
+    <!-- Primer rectángulo -->
+    <div class="video-card">
+      <div class="video-container">
+        <iframe width="400" height="250" 
+          src="https://www.youtube.com/embed/2AKFOjMHa7c" 
+          title="Video de tendencias"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-text">
+        <h2>El perfume mas caro de la historia</h2>
+        <p>
+          Explora con nosotros las últimas tendencias en perfumería de lujo y
+          los aromas más exclusivos. ¿Para ti oler bien tiene precio?
+        </p>
+      </div>
+    </div>
+
+    <!-- Segundo rectángulo -->
+    <div class="video-card">
+      <div class="video-container">
+        <iframe width="400" height="250" 
+          src="https://www.youtube.com/embed/Dn7l3iplWIU" 
+          title="Video de aplicación"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-text">
+        <h2>La fama si tiene olor!! conocelos aqui</h2>
+        <p>
+          Aprende con nosotros a que huelen los famosos hoy en dia y
+          los puntos estratégicos de aplicación al usar perfumes.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+    
+    <!--Barra inferior-->
+    <footer>
+    <div class="footer-content">
+        <div class="footer-section productos-footer">
+        <h3>Premiados en 2024</h3>
+        <ul>
+            <li><a href="producto.html?id=2">Perfume Dulce</a></li>
+            <li><a href="producto.html?id=6">Perfume Amaderado</a></li>
+            <li><a href="producto.html?id=1">Perfume Cítrico</a></li>
+        </ul>
+        </div>
+        <div class="footer-section info-footer">
+        <h3>Sobre Nosotros</h3>
+        <p>
+            Perfumes Sahur ofrece las mejores fragancias importadas y nacionales,
+            con envío a todo el país y atención personalizada para cada cliente.
+        </p>
+        </div>
+        <div class="footer-section contacto-footer">
+        <h3>Contacto</h3>
+        <p>Email: contacto@perfumesahur.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Perfumes Sahur. Todos los derechos reservados.</p>
+    </div>
+    </footer>
+    <script src="../js/carrito.js"></script>
+</body>
+</html>
