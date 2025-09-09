@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Formulario de Contacto</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../css/style_contacto.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="../img/logo.png" alt="Logo">
+            </div>
+
+            <!-- Menú centrado -->
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../productos.html">Productos</a></li>
+                    <li><a href="../nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Login -->
+            <div class="login">
+                <a href="../login.html">Iniciar Sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Formulario de contacto -->
+    <section id="contact-form" class="inner form-container" style="max-width:600px;margin:50px auto;padding:30px;background:#fff;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <h2>Contáctanos</h2>
+        <p>Completa el formulario y te responderemos lo antes posible.</p>
+
+        <form id="contactForm">
+            <div class="field">
+                <label for="email">Email</label><br>
+                <input type="text" name="email" id="email" style="width:100%;padding:10px;margin-top:5px;margin-bottom:15px;border:1px solid #ccc;border-radius:6px;">
+            </div>
+
+            <div class="field">
+                <label for="Asunto">Asunto</label><br>
+                <input type="text" name="Asunto" id="Asunto" style="width:100%;padding:10px;margin-top:5px;margin-bottom:15px;border:1px solid #ccc;border-radius:6px;">
+            </div>
+
+            <div class="field">
+                <label for="Mensaje">Mensaje</label><br>
+                <textarea name="Mensaje" id="Mensaje" rows="6" style="width:100%;padding:10px;margin-top:5px;margin-bottom:15px;border:1px solid #ccc;border-radius:6px;resize:none;"></textarea>
+            </div>
+
+            <input type="submit" id="button" value="Enviar" style="background:#019180;color:white;border:none;padding:12px 20px;border-radius:6px;cursor:pointer;font-weight:bold;transition:background 0.2s ease;">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Nosotros</h3>
+                <p>Empresa dedicada a brindar soluciones tecnológicas.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../productos.html">Productos</a></li>
+                    <li><a href="../nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: soporte@tuempresa.com</p>
+                <p>Teléfono: +56 9 1234 5678</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Tu Empresa | Todos los derechos reservados
+        </div>
+    </footer>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      emailjs.init('SIKhf3tsHp7PkczZB');
+
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.send('service_ucmygaf', 'template_z8q5rp9', {
+          email: document.getElementById('email').value,
+          Asunto: document.getElementById('Asunto').value,
+          Mensaje: document.getElementById('Mensaje').value
+        })
+        .then(function() {
+          alert('Correo enviado correctamente!');
+          document.getElementById('contactForm').reset();
+        }, function(error) {
+          alert('Error al enviar el correo: ' + JSON.stringify(error));
+        });
+      });
+    </script>
+</body>
+</html>
